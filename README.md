@@ -1,4 +1,4 @@
-# Skatescribe
+# Cion Studio Interview Task
 
 
 ## Task Details
