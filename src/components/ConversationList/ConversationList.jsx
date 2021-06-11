@@ -13,13 +13,14 @@ function ConversationList() {
     <div className={styles.container}>
       <ConversationSearch></ConversationSearch>
       <div className={styles.list}>
-        {conversations.map(({ id, target, messages }, index) => {
+        {conversations.map(({ id, read, target, messages }, index) => {
           const lastMessage = messages[messages.length - 1];
           const previewText = lastMessage ? lastMessage.content : "";
 
           return (
             <ConversationPreview
               id={id}
+              read={read}
               name={target.name}
               previewText={previewText}
               key={index}

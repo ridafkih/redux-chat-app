@@ -12,7 +12,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 /**
  * A conversation object.
- * @typedef {{ id: number, target: User, messages: Message[] }}
+ * @typedef {{ id: number, target: User, messages: Message[], read: boolean }}
  */
 
 const chatSlice = createSlice({
@@ -21,9 +21,42 @@ const chatSlice = createSlice({
     conversations: [
       {
         id: 0,
+        read: false,
         target: {
           id: 0,
           name: "Lupe Fiasco",
+          avatarUrl: "",
+        },
+        messages: [
+          {
+            conversationId: 0,
+            timestamp: new Date(),
+            content:
+              "I got two tickets to see this awesome movie, called Spongebob!",
+            outgoing: false,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(),
+            content:
+              "I got two tickets to see this awesome movie, called Spongebob!",
+            outgoing: false,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(),
+            content:
+              "I got two tickets to see this awesome movie, called Spongebob!",
+            outgoing: true,
+          },
+        ],
+      },
+      {
+        id: 1,
+        read: true,
+        target: {
+          id: 0,
+          name: "Dua Lipa",
           avatarUrl: "",
         },
         messages: [
@@ -58,7 +91,7 @@ const chatSlice = createSlice({
           {
             conversationId: 0,
             timestamp: new Date(),
-            content: "",
+            content: "We don't do that here.",
             outgoing: false,
           },
         ],

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const uiSlice = createSlice({
   name: "ui",
   initialState: {
-    conversationId: -1,
+    conversationId: 0,
   },
   reducers: {
     switchConversation: (state, action) => {},

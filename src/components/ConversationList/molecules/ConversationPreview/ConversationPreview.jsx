@@ -6,9 +6,9 @@ import styles from "./ConversationPreview.module.css";
  * @param {{ id: number, name: string, previewText: string }} param0
  * @returns
  */
-function ConversationPreview({ id, name, previewText }) {
+function ConversationPreview({ id, read, name, previewText }) {
   return (
-    <div className={`${styles.container} ${styles.unread}`}>
+    <div className={`${styles.container} ${read ? "" : styles.unread}`}>
       <div className={styles.avatar_container}></div>
       <div className={styles.metadata}>
         <div className={styles.name}>{name}</div>
