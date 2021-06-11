@@ -30,24 +30,69 @@ const chatSlice = createSlice({
         messages: [
           {
             conversationId: 0,
-            timestamp: new Date(),
-            content:
-              "I got two tickets to see this awesome movie, called Spongebob!",
+            timestamp: new Date(1623391624940),
+            content: "A",
             outgoing: false,
           },
           {
             conversationId: 0,
-            timestamp: new Date(),
-            content:
-              "I got two tickets to see this awesome movie, called Spongebob!",
+            timestamp: new Date(1623391625250),
+            content: "B",
             outgoing: false,
           },
           {
             conversationId: 0,
-            timestamp: new Date(),
-            content:
-              "I got two tickets to see this awesome movie, called Spongebob!",
+            timestamp: new Date(1623391625360),
+            content: "C",
             outgoing: true,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: true,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: true,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: true,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: false,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: true,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: false,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: false,
+          },
+          {
+            conversationId: 0,
+            timestamp: new Date(1623391625360),
+            content: "C",
+            outgoing: false,
           },
         ],
       },
