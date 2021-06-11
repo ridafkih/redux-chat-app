@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { conversationSwitched } from "../../../../redux/slices/uiSlice";
 import { messageReceived } from "../../../../redux/slices/chatSlice";
+
+import faker from "faker";
 
 import styles from "./ConversationPreview.module.css";
 
@@ -16,6 +18,19 @@ function ConversationPreview({ id, selected, read, name, previewText }) {
   const handleClick = (id) => {
     dispatch(conversationSwitched(id));
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(
+        messageReceived({
+          conversationId: id,
+          content: faker.hacker.phrase(),
+        })
+      );
+    }, Math.random() * 10000 + 10000);
+
+    return () => clearInterval(interval);
+  }, [dispatch]);
 
   return (
     <div

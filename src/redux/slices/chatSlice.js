@@ -106,16 +106,16 @@ const initialState = {
   ],
 };
 
-function makeKeyGenerator(key = -1) {
-  return function () {
-    return ++key;
-  };
-}
+// function makeKeyGenerator(key = -1) {
+//   return function () {
+//     return ++key;
+//   };
+// }
 
-const { conversations } = initialState;
-const generateKey = makeKeyGenerator(
-  Math.max(...conversations.map((conversation) => conversation.id))
-);
+// const { conversations } = initialState;
+// const generateKey = makeKeyGenerator(
+//   Math.max(...conversations.map((conversation) => conversation.id))
+// );
 
 const chatSlice = createSlice({
   name: "chat",
@@ -149,7 +149,6 @@ const chatSlice = createSlice({
           {
             ...conversation,
             messages: [...conversation.messages, message],
-            read: false,
           },
           ...state.conversations.filter(
             (conversation) => conversation.id !== conversationId
@@ -170,7 +169,11 @@ const chatSlice = createSlice({
       return {
         ...state,
         conversations: [
-          { ...conversation, messages: [...conversation.messages, message] },
+          {
+            ...conversation,
+            messages: [...conversation.messages, message],
+            read: false,
+          },
           ...state.conversations.filter(
             (conversation) => conversation.id !== conversationId
           ),
