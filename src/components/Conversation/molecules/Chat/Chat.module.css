@@ -1,0 +1,49 @@
+.container {
+  padding: 1rem 2rem;
+  flex-grow: 1;
+}
+
+.bunch {
+  max-width: 700px;
+}
+
+.bunch::after {
+  content: attr(data-timestamp);
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #B9BAC9;
+}
+
+.message {
+  position: relative;
+  padding: 1rem;
+  width: fit-content;
+  max-width: 80%;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #FFFFFF;
+  background: #8E88E5;
+}
+
+.message:first-child::before {
+  content: "";
+  
+  position: absolute;
+  left: 0.5rem;
+  top: -10px;
+  
+  width: 0;
+  height: 0;
+
+  border-radius: 4px;
+  border-bottom: 14px solid #8E88E5;
+  border-right: 14px solid transparent;
+}
+
+.message:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
