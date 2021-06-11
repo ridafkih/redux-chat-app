@@ -33,7 +33,28 @@ function Message({ content }) {
 }
 
 function parseDateObject(date = new Date()) {
-  return date.toLocaleString();
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const meridiem = hours >= 12 ? "pm" : "am";
+  const parsedHours = hours === 0 ? 12 : hours % 12;
+  const parsedMinutes = minutes < 10 ? "0" + minutes : minutes;
+
+  const parsedTime = `${parsedHours}:${parsedMinutes}${meridiem}`;
+
+  const weekday = date.toLocaleString("en", {
+    weekday: "short",
+  });
+
+  const month = date.toLocaleString("en", {
+    month: "short",
+  });
+
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  const parsed = `${parsedTime} on ${weekday}, ${month} ${day}, ${year}`;
+
+  return parsed;
 }
 
 export default MessageBunch;
