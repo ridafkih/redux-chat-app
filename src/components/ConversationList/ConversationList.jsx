@@ -8,6 +8,7 @@ import ConversationPreview from "./molecules/ConversationPreview/ConversationPre
 
 function ConversationList() {
   const { conversations } = useSelector((state) => state.chat);
+  const { conversationId } = useSelector((state) => state.ui);
 
   return (
     <div className={styles.container}>
@@ -20,6 +21,7 @@ function ConversationList() {
           return (
             <ConversationPreview
               id={id}
+              selected={conversationId === id}
               read={read}
               name={target.name}
               previewText={previewText}
