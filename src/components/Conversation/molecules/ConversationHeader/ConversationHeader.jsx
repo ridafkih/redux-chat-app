@@ -17,7 +17,13 @@ function ConversationHeader() {
       {conversation && (
         <>
           <div className={styles.recipient}>
-            <div className={styles.avatar}></div>
+            <div className={styles.avatar_container}>
+              <img
+                className={styles.avatar}
+                src={conversation.target.avatarUrl}
+                alt="avatar"
+              />
+            </div>
             <div className={styles.name}>{conversation.target.name}</div>
           </div>
           <div className={styles.actions}>
