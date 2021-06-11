@@ -39,8 +39,10 @@ function Chat() {
     return bunches;
   };
 
+  const handleClick = () => dispatch(conversationRead(conversationId));
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={handleClick}>
       <div className={styles.messages}>
         {bunchMessages().map((bunch, index) => {
           const { timestamp, outgoing } = bunch[bunch.length - 1];

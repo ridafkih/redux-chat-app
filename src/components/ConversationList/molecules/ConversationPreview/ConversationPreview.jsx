@@ -9,10 +9,24 @@ import styles from "./ConversationPreview.module.css";
 
 /**
  *
- * @param {{ id: number, name: string, previewText: string }} param0
+ * @param {{
+ *  id: number,
+ *  selected: boolean,
+ *  read: boolean,
+ *  name: string,
+ *  avatar: string,
+ *  previewText: string
+ * }} param0
  * @returns
  */
-function ConversationPreview({ id, selected, read, name, previewText }) {
+function ConversationPreview({
+  id,
+  selected,
+  read,
+  name,
+  avatar,
+  previewText,
+}) {
   const dispatch = useDispatch();
 
   const handleClick = (id) => {
@@ -39,7 +53,9 @@ function ConversationPreview({ id, selected, read, name, previewText }) {
         ${read ? "" : styles.unread} ${selected ? styles.selected : ""}`}
       onClick={() => handleClick(id)}
     >
-      <div className={styles.avatar_container}></div>
+      <div className={styles.avatar_container}>
+        <img className={styles.avatar} src={avatar} alt="avatar" />
+      </div>
       <div className={styles.metadata}>
         <div className={styles.name}>{name}</div>
         <div

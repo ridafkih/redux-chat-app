@@ -23,6 +23,7 @@ function ConversationList() {
               id={id}
               selected={conversationId === id}
               read={read}
+              avatar={target.avatarUrl}
               name={target.name}
               previewText={previewText}
               key={index}
