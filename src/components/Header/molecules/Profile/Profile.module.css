@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container > *:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background: #B9BDC6;
+}
+
+.name {
+  color: #B9BDC6;
+  font-weight: 500;
+}
