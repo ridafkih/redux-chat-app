@@ -1,0 +1,46 @@
+.container {
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipient {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #B9BDC6;
+  margin-right: 0.75em;
+}
+
+.name {
+  color: #74777C;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  align-items: flex-start;
+}
+
+.icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  color: #B8B9C9;
+}
+
+.icon:not(:last-child) {
+  margin-right: 1.75rem;
+}
+
+.icon.selected {
+  color: #8D88E5;
+}
