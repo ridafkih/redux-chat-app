@@ -126,6 +126,7 @@ const chatSlice = createSlice({
     },
     conversationRead: (state, action) => {
       return {
+        ...state,
         conversations: state.conversations.map((conversation) => {
           if (conversation.id !== action.payload) return conversation;
           return { ...conversation, read: true };
@@ -143,6 +144,7 @@ const chatSlice = createSlice({
       const conversation = getRelevantConversation(state, conversationId);
 
       return {
+        ...state,
         conversations: [
           { ...conversation, messages: [...conversation.messages, message] },
           ...state.conversations.filter(
