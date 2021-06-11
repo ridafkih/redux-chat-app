@@ -1,33 +1,19 @@
 import React from "react";
 import styles from "./Chat.module.css";
 
+import MessageBunch from "./molecules/MessageBunch/MessageBunch";
+
 function Chat() {
   return (
     <div className={styles.container}>
-      <div
-        className={styles.bunch}
-        data-timestamp="10:30am on Tue, Mar 23, 2015"
-      >
-        <div className={styles.message}>This is the message content.</div>
-        <div className={styles.message}>
-          This is the message contentThis is the message contentThis is the
-          message contentThis is the message contentThis is the message
-          contentThis is the message contentThis is the message contentThis is
-          the message content.
-        </div>
-      </div>
-      <div
-        className={`${styles.bunch} ${styles.outgoing}`}
-        data-timestamp="10:30am on Tue, Mar 23, 2015"
-      >
-        <div className={styles.message}>This is the message content.</div>
-        <div className={styles.message}>
-          This is the message contentThis is the message contentThis is the
-          message contentThis is the message contentThis is the message
-          contentThis is the message contentThis is the message contentThis is
-          the message content.
-        </div>
-      </div>
+      <MessageBunch
+        messages={"There is only one message in this bunch."}
+        outgoing={true}
+      ></MessageBunch>
+      <MessageBunch
+        messages={["There are multiple messages here.", "As you can see!"]}
+        outgoing={false}
+      ></MessageBunch>
     </div>
   );
 }

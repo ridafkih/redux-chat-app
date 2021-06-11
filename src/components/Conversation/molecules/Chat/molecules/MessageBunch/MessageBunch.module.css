@@ -1,0 +1,79 @@
+
+
+.bunch {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bunch:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.bunch:not(.outgoing)::after {
+  content: attr(data-timestamp);
+  display: block;
+  margin: 0.5rem 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #B9BAC9;
+}
+
+.message {
+  position: relative;
+  padding: 1rem;
+  width: fit-content;
+  max-width: 80%;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #FFFFFF;
+  background: #8E88E5;
+}
+
+.bunch:not(.outgoing) .message:first-child::before {
+  content: "";
+  
+  position: absolute;
+  left: 0.5rem;
+  top: -10px;
+  
+  width: 0;
+  height: 0;
+
+  border-radius: 4px;
+  border-bottom: 14px solid #8E88E5;
+  border-right: 14px solid transparent;
+}
+
+.message:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+/* OUTGOING */
+
+.bunch.outgoing {
+  align-self: flex-end;
+}
+
+.bunch.outgoing .message {
+  align-self: flex-end;
+  color: #555555;
+  background: #E9E9FE;
+}
+
+.bunch.outgoing .message:last-child::after {
+  content: "";
+  
+  position: absolute;
+  right: 0.5rem;
+  bottom: -10px;
+  
+  width: 0;
+  height: 0;
+
+  border-radius: 4px;
+  border-top: 14px solid #E9E9FE;
+  border-left: 14px solid transparent;
+}
