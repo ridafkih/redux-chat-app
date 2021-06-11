@@ -1,15 +1,23 @@
 .container {
   width: 100%;
   display: flex;
+  padding: 1.5rem 2rem;
 }
 
 .field_region {
   width: 100%;
-  padding: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #B7B9C9;
 }
 
 .field_region:hover {
   cursor: text;
+}
+
+.icon {
+  margin-right: 0.5rem;
 }
 
 .input,
@@ -21,4 +29,16 @@
 
 .input::placeholder {
   font-weight: 600;
+}
+
+.add_conversation {
+  font-size: 1.25rem;
+  color: #B7B9C9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add_conversation:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
 }
