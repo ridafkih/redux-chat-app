@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/redux-chat-app/static/css/main.fd86b3e1.chunk.css",
+    "main.css": "/redux-chat-app/static/css/main.1268af53.chunk.css",
     "main.js": "/redux-chat-app/static/js/main.1beca5dc.chunk.js",
     "main.js.map": "/redux-chat-app/static/js/main.1beca5dc.chunk.js.map",
     "runtime-main.js": "/redux-chat-app/static/js/runtime-main.6e9ad64e.js",
@@ -8,13 +8,13 @@
     "static/js/2.a9b40dc6.chunk.js": "/redux-chat-app/static/js/2.a9b40dc6.chunk.js",
     "static/js/2.a9b40dc6.chunk.js.map": "/redux-chat-app/static/js/2.a9b40dc6.chunk.js.map",
     "index.html": "/redux-chat-app/index.html",
-    "static/css/main.fd86b3e1.chunk.css.map": "/redux-chat-app/static/css/main.fd86b3e1.chunk.css.map",
+    "static/css/main.1268af53.chunk.css.map": "/redux-chat-app/static/css/main.1268af53.chunk.css.map",
     "static/js/2.a9b40dc6.chunk.js.LICENSE.txt": "/redux-chat-app/static/js/2.a9b40dc6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6e9ad64e.js",
     "static/js/2.a9b40dc6.chunk.js",
-    "static/css/main.fd86b3e1.chunk.css",
+    "static/css/main.1268af53.chunk.css",
     "static/js/main.1beca5dc.chunk.js"
   ]
 }
