@@ -6,10 +6,12 @@ const uiSlice = createSlice({
     conversationId: 0,
   },
   reducers: {
-    switchConversation: (state, action) => {},
-    closeConversation: (state, action) => {},
+    conversationSwitched: (state, action) => {
+      return { conversationId: action.payload };
+    },
+    conversationClosed: (state, action) => {},
   },
 });
 
-export const { switchConversation, closeConversation } = uiSlice.actions;
+export const { conversationSwitched, conversationClosed } = uiSlice.actions;
 export default uiSlice.reducer;

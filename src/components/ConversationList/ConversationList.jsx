@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import styles from "./ConversationList.module.css";
 
 import ConversationSearch from "./molecules/ConversationSearch/ConversationSearch";
@@ -7,7 +8,6 @@ import ConversationPreview from "./molecules/ConversationPreview/ConversationPre
 
 function ConversationList() {
   const { conversations } = useSelector((state) => state.chat);
-  console.log(conversations);
 
   return (
     <div className={styles.container}>

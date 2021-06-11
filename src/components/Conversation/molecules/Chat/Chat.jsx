@@ -19,6 +19,7 @@ function Chat() {
   const bunchMessages = () => {
     const bunches = [];
 
+    if (!conversation) return [];
     for (let [index, message] of conversation.messages.entries()) {
       const { messages } = conversation;
       const last = messages[index - 1];

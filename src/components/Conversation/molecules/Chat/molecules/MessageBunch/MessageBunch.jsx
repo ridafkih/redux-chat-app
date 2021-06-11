@@ -3,7 +3,7 @@ import styles from "./MessageBunch.module.css";
 
 /**
  * Message bunch component
- * @param {{ outgoing: boolean, messages: string | string[], timestamp: Date }}
+ * @param {{ outgoing: boolean, messages: string | string[], timestamp: number }}
  * @returns {React.ReactNode}
  */
 function MessageBunch({ outgoing, messages, timestamp }) {
@@ -32,7 +32,8 @@ function Message({ content }) {
   return <div className={styles.message}>{content}</div>;
 }
 
-function parseDateObject(date = new Date()) {
+function parseDateObject(timestamp = new Date().getTime()) {
+  const date = new Date(timestamp);
   let hours = date.getHours();
   const minutes = date.getMinutes();
   const meridiem = hours >= 12 ? "pm" : "am";
