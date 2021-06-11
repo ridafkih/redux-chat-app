@@ -40,12 +40,14 @@
   font-weight: 600;
 }
 
-.container.unread .preview {
+.container.unread .preview,
+.container.unread .empty_preview {
   color: #555555;
   font-weight: 500;
 }
 
-.preview {
+.preview,
+.empty_preview {
   width: 100%;
   display: inline-block;
   font-size: 12px;
@@ -55,4 +57,9 @@
   white-space: nowrap;
   margin-top: 0.5rem;
   color: #B7B9C9;
+}
+
+.empty_preview {
+  font-style: italic;
+  opacity: .5;
 }
