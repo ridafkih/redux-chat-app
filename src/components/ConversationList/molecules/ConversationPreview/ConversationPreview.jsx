@@ -27,10 +27,10 @@ function ConversationPreview({ id, selected, read, name, previewText }) {
           content: faker.hacker.phrase(),
         })
       );
-    }, Math.random() * 10000 + 10000);
+    }, Math.random() * 15000 + 30000);
 
     return () => clearInterval(interval);
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div
