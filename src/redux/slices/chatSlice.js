@@ -146,7 +146,11 @@ const chatSlice = createSlice({
       return {
         ...state,
         conversations: [
-          { ...conversation, messages: [...conversation.messages, message] },
+          {
+            ...conversation,
+            messages: [...conversation.messages, message],
+            read: false,
+          },
           ...state.conversations.filter(
             (conversation) => conversation.id !== conversationId
           ),
