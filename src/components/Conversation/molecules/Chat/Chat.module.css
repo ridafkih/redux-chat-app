@@ -1,13 +1,21 @@
 .container {
   padding: 1rem 2rem;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .bunch {
   max-width: 700px;
+  display: flex;
+  flex-direction: column;
 }
 
-.bunch::after {
+.bunch:not(:first-child) {
+  margin-top: 1rem;
+}
+
+.bunch:not(.outgoing)::after {
   content: attr(data-timestamp);
   display: block;
   margin: 0.5rem 0;
@@ -29,7 +37,7 @@
   background: #8E88E5;
 }
 
-.message:first-child::before {
+.bunch:not(.outgoing) .message:first-child::before {
   content: "";
   
   position: absolute;
@@ -46,4 +54,31 @@
 
 .message:not(:last-child) {
   margin-bottom: 0.75rem;
+}
+
+/* OUTGOING */
+
+.bunch.outgoing {
+  align-self: flex-end;
+}
+
+.bunch.outgoing .message {
+  align-self: flex-end;
+  color: #555555;
+  background: #E9E9FE;
+}
+
+.bunch.outgoing .message:last-child::after {
+  content: "";
+  
+  position: absolute;
+  right: 0.5rem;
+  bottom: -10px;
+  
+  width: 0;
+  height: 0;
+
+  border-radius: 4px;
+  border-top: 14px solid #E9E9FE;
+  border-left: 14px solid transparent;
 }
