@@ -15,6 +15,7 @@ function ConversationList() {
       <ConversationSearch></ConversationSearch>
       <div className={styles.list}>
         {conversations.map(({ id, read, target, messages }, index) => {
+          console.log(conversations);
           const lastMessage = messages[messages.length - 1];
           const previewText = lastMessage ? lastMessage.content : "";
 

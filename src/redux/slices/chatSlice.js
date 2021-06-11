@@ -122,17 +122,27 @@ const chatSlice = createSlice({
   initialState,
   reducers: {
     conversationAdded: (state, action) => {
-      return [
-        ...state,
-        {
-          id: generateKey(),
-          read: false,
-          target: action.payload.target,
-          messages: action.payload.messages,
-        },
-      ];
+      // ...
     },
-    messageSent: (state, action) => {},
+    messageSent: (state, action) => {
+      const {
+        conversationId,
+        timestamp = new Date().getTime(),
+        content,
+      } = action.payload;
+
+      const message = { timestamp, content, outgoing: true };
+
+      return {
+        conversations: state.conversations.map((conversation) => {
+          if (conversation.id !== conversationId) return conversation;
+          return {
+            ...conversation,
+            messages: [...conversation.messages, message],
+          };
+        }),
+      };
+    },
     messageReceived: (state, action) => {},
   },
 });
