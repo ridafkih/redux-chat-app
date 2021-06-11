@@ -153,7 +153,26 @@ const chatSlice = createSlice({
         ],
       };
     },
-    messageReceived: (state, action) => {},
+    messageReceived: (state, action) => {
+      const {
+        conversationId,
+        timestamp = new Date().getTime(),
+        content,
+      } = action.payload;
+
+      const message = { timestamp, content, outgoing: false };
+      const conversation = getRelevantConversation(state, conversationId);
+
+      return {
+        ...state,
+        conversations: [
+          { ...conversation, messages: [...conversation.messages, message] },
+          ...state.conversations.filter(
+            (conversation) => conversation.id !== conversationId
+          ),
+        ],
+      };
+    },
   },
 });
 
