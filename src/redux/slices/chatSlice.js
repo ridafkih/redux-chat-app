@@ -27,43 +27,36 @@ const initialState = {
       },
       messages: [
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: false,
         },
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: true,
         },
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: false,
         },
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: true,
         },
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: false,
         },
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: true,
         },
         {
-          conversationId: 0,
           timestamp: 1623391625250,
           content: "B",
           outgoing: true,
@@ -80,35 +73,30 @@ const initialState = {
       },
       messages: [
         {
-          conversationId: 0,
           timestamp: new Date().getTime(),
           content:
             "I got two tickets to see this awesome movie, called Spongebob!",
           outgoing: false,
         },
         {
-          conversationId: 0,
           timestamp: new Date().getTime(),
           content:
             "I got two tickets to see this awesome movie, called Spongebob!",
           outgoing: false,
         },
         {
-          conversationId: 0,
           timestamp: new Date().getTime(),
           content:
             "I got two tickets to see this awesome movie, called Spongebob!",
           outgoing: true,
         },
         {
-          conversationId: 0,
           timestamp: new Date().getTime(),
           content:
             "I got two tickets to see this awesome movie, called Spongebob!",
           outgoing: true,
         },
         {
-          conversationId: 0,
           timestamp: new Date().getTime(),
           content: "We don't do that here.",
           outgoing: false,
@@ -126,14 +114,24 @@ function makeKeyGenerator(key = -1) {
 
 const { conversations } = initialState;
 const generateKey = makeKeyGenerator(
-  conversations[conversations.length - 1].id
+  Math.max(...conversations.map((conversation) => conversation.id))
 );
 
 const chatSlice = createSlice({
   name: "chat",
   initialState,
   reducers: {
-    conversationAdded: (state, action) => {},
+    conversationAdded: (state, action) => {
+      return [
+        ...state,
+        {
+          id: generateKey(),
+          read: false,
+          target: action.payload.target,
+          messages: action.payload.messages,
+        },
+      ];
+    },
     messageSent: (state, action) => {},
     messageReceived: (state, action) => {},
   },
