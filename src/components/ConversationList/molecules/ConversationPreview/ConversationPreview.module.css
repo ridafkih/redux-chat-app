@@ -1,0 +1,57 @@
+.container {
+  width: 100%;
+  position: relative;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.container:hover {
+  cursor: pointer;
+  background: #FAFAFA;
+}
+
+.avatar_container {
+  min-width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  background: #B9BDC6;
+  margin-right: 0.75rem;
+}
+
+.metadata {
+  min-width: 0;
+  overflow: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container.unread .name {
+  color: #8E88E5;
+}
+
+.name {
+  color: #74777C;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.container.unread .preview {
+  color: #555555;
+}
+
+.preview {
+  width: 100%;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0.5rem;
+  color: #B7B9C9;
+}
