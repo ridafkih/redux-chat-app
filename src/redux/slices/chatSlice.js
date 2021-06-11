@@ -133,14 +133,21 @@ const chatSlice = createSlice({
 
       const message = { timestamp, content, outgoing: true };
 
+      const conversationIndex = state.conversations.findIndex(
+        (conversation) => {
+          return conversation.id === conversationId;
+        }
+      );
+
+      const conversation = state.conversations[conversationIndex];
+
       return {
-        conversations: state.conversations.map((conversation) => {
-          if (conversation.id !== conversationId) return conversation;
-          return {
-            ...conversation,
-            messages: [...conversation.messages, message],
-          };
-        }),
+        conversations: [
+          { ...conversation, messages: [...conversation.messages, message] },
+          ...state.conversations.filter(
+            (conversation) => conversation.id !== conversationId
+          ),
+        ],
       };
     },
     messageReceived: (state, action) => {},

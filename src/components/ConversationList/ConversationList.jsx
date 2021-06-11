@@ -35,4 +35,10 @@ function ConversationList() {
   );
 }
 
+function getLastMessageTimestamp(conversation) {
+  const { messages } = conversation;
+  const lastMessage = messages[messages.length - 1] || {};
+  return lastMessage.timestamp;
+}
+
 export default ConversationList;
