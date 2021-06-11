@@ -124,6 +124,14 @@ const chatSlice = createSlice({
     conversationAdded: (state, action) => {
       // ...
     },
+    conversationRead: (state, action) => {
+      return {
+        conversations: state.conversations.map((conversation) => {
+          if (conversation.id !== action.payload) return conversation;
+          return { ...conversation, read: true };
+        }),
+      };
+    },
     messageSent: (state, action) => {
       const {
         conversationId,
@@ -132,14 +140,7 @@ const chatSlice = createSlice({
       } = action.payload;
 
       const message = { timestamp, content, outgoing: true };
-
-      const conversationIndex = state.conversations.findIndex(
-        (conversation) => {
-          return conversation.id === conversationId;
-        }
-      );
-
-      const conversation = state.conversations[conversationIndex];
+      const conversation = getRelevantConversation(state, conversationId);
 
       return {
         conversations: [
@@ -154,7 +155,19 @@ const chatSlice = createSlice({
   },
 });
 
-export const { conversationAdded, messageSent, messageReceived } =
-  chatSlice.actions;
+function getRelevantConversation(state, conversationId) {
+  const conversationIndex = state.conversations.findIndex((conversation) => {
+    return conversation.id === conversationId;
+  });
+
+  return state.conversations[conversationIndex];
+}
+
+export const {
+  conversationAdded,
+  conversationRead,
+  messageSent,
+  messageReceived,
+} = chatSlice.actions;
 
 export default chatSlice.reducer;

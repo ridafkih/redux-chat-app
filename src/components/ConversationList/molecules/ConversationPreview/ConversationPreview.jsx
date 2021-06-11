@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { conversationSwitched } from "../../../../redux/slices/uiSlice";
+import { conversationRead } from "../../../../redux/slices/chatSlice";
 
 import styles from "./ConversationPreview.module.css";
 
