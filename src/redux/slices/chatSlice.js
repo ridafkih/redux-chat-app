@@ -1,3 +1,4 @@
+import faker from "faker";
 import { createSlice } from "@reduxjs/toolkit";
 
 /**
@@ -15,107 +16,44 @@ import { createSlice } from "@reduxjs/toolkit";
  * @typedef {{ id: number, target: User, messages: Message[], read: boolean }}
  */
 
-const initialState = {
-  conversations: [
-    {
-      id: 0,
-      read: false,
-      target: {
-        id: 0,
-        name: "Lupe Fiasco",
-        avatarUrl: "",
-      },
-      messages: [
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: false,
-        },
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: true,
-        },
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: false,
-        },
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: true,
-        },
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: false,
-        },
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: true,
-        },
-        {
-          timestamp: 1623391625250,
-          content: "B",
-          outgoing: true,
-        },
-      ],
-    },
-    {
-      id: 1,
-      read: true,
-      target: {
-        id: 0,
-        name: "Dua Lipa",
-        avatarUrl: "",
-      },
-      messages: [
-        {
-          timestamp: new Date().getTime(),
-          content:
-            "I got two tickets to see this awesome movie, called Spongebob!",
-          outgoing: false,
-        },
-        {
-          timestamp: new Date().getTime(),
-          content:
-            "I got two tickets to see this awesome movie, called Spongebob!",
-          outgoing: false,
-        },
-        {
-          timestamp: new Date().getTime(),
-          content:
-            "I got two tickets to see this awesome movie, called Spongebob!",
-          outgoing: true,
-        },
-        {
-          timestamp: new Date().getTime(),
-          content:
-            "I got two tickets to see this awesome movie, called Spongebob!",
-          outgoing: true,
-        },
-        {
-          timestamp: new Date().getTime(),
-          content: "We don't do that here.",
-          outgoing: false,
-        },
-      ],
-    },
-  ],
+function makeKeyGenerator(key = -1) {
+  return function () {
+    return ++key;
+  };
+}
+
+const generateConversationKey = makeKeyGenerator();
+const generateAuthorKey = makeKeyGenerator();
+
+// I would never actually name a function this.
+const generateMumboJumboConvo = () => {
+  return [...Array(Math.ceil(Math.random() * 10))].map(() => {
+    return {
+      timestamp: new Date().getTime(),
+      content: faker.hacker.phrase(),
+      outgoing: Math.random() > 0.5,
+    };
+  });
 };
 
-// function makeKeyGenerator(key = -1) {
-//   return function () {
-//     return ++key;
-//   };
-// }
+const generateConversations = () => {
+  return [...Array(Math.ceil(Math.random() * 15 + 3))].map(() => {
+    return {
+      id: generateConversationKey(),
+      read: Math.random() > 0.5,
+      target: {
+        id: generateAuthorKey(),
+        name: faker.fake("{{name.firstName}} {{name.lastName}}"),
+        avatarUrl: faker.image.avatar(),
+      },
+      messages: generateMumboJumboConvo(),
+    };
+  });
+};
 
-// const { conversations } = initialState;
-// const generateKey = makeKeyGenerator(
-//   Math.max(...conversations.map((conversation) => conversation.id))
-// );
+const initialState = {
+  conversations: generateConversations(),
+};
 
 const chatSlice = createSlice({
   name: "chat",
