@@ -42,7 +42,6 @@
   width: 0;
   height: 0;
 
-  border-radius: 4px;
   border-bottom: 14px solid #8E88E5;
   border-right: 14px solid transparent;
 }
@@ -73,7 +72,6 @@
   width: 0;
   height: 0;
 
-  border-radius: 4px;
   border-top: 14px solid #E9E9FE;
   border-left: 14px solid transparent;
 }
