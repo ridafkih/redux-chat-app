@@ -3,12 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 const uiSlice = createSlice({
   name: "ui",
   initialState: {
-    conversation: null,
+    conversationId: -1,
   },
   reducers: {
     switchConversation: (state, action) => {},
+    closeConversation: (state, action) => {},
   },
 });
 
-export const { switchConversation } = uiSlice.actions;
+export const { switchConversation, closeConversation } = uiSlice.actions;
 export default uiSlice.reducer;
