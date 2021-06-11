@@ -10,6 +10,8 @@ function ConversationList() {
       <ConversationSearch></ConversationSearch>
       <div className={styles.list}>
         <ConversationPreview></ConversationPreview>
+        <ConversationPreview></ConversationPreview>
+        <ConversationPreview></ConversationPreview>
       </div>
     </div>
   );
